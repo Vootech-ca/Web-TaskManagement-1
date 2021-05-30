@@ -1,0 +1,36 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Traits\Filtering;
+use App\Traits\FormatDates;
+use App\Traits\LikeTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Permission\Traits\HasRoles;
+
+class {{ class }} extends Model
+{
+    use HasFactory, Notifiable, HasApiTokens, HasRoles, LogsActivity, LikeTrait, FormatDates, Filtering;
+
+    protected static $logFillable = true;
+
+    //! Table Name
+    protected $table = '';
+
+    //! Columns Casts
+    protected $casts = [];
+
+    //! Primary Key Column Name
+    protected $primaryKey = 'id';
+
+    //! Fillable Columns
+    protected $fillable = [];
+
+    //! Model Scopes
+
+    //! Model relations
+}

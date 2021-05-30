@@ -1,0 +1,15 @@
+{
+    "message": "The given data was invalid.",
+    "errors": {
+        "username": [
+            "The username field is required."
+        ],
+        "password": [
+            "The password must contain at least one uppercase and one lowercase letter.",
+            "The password must contain at least one number."
+        ],
+        "user_type": [
+            "The user type field is required."
+        ],
+    }
+}

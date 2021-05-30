@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "username": "admin",
+        "user_type": "Admin",
+        "gender": true,
+        "created_at": "2021-05-22 04:31:18 AM"
+    },
+    {
+        "id": 1,
+        "username": "user",
+        "user_type": "User",
+        "gender": false,
+        "created_at": "2021-05-22 05:00:18 AM"
+    }
+]

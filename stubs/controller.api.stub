@@ -1,0 +1,147 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ rootNamespace }}Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Exception;
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * @group Name
+ * @authenticated
+ */
+class {{ class }} extends Controller
+{
+    /**
+     * Get All
+     * if 200 will return all
+     * if 400 there is an error in sending parameters,
+     * if 401 there is an error in token,
+     * if 404 the resource not found,
+     * if 500 there is an error in server,
+     * @responseFile 200 responses/expenses/all.json
+     * @response 400 {}
+     * @response 401 {}
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
+    public function index()
+    {
+        try {
+            [$all, $total] = getTotalWithModel(
+                Name::filtering($request),
+                $request->get('_page'),
+                $request->get('_take')
+            );
+            return response()->json([
+                'data'  => NameResource::collection($all),
+                'total' => $total
+            ], Response::HTTP_OK);
+        } catch (Exception $ex) {
+            return response()->noContent(Response::HTTP_BAD_REQUEST);
+        }
+    }
+
+    /**
+     * Create
+     * If 201 will return the single data,
+     * if 400 there is an error in sending parameters,
+     * if 401 there is an error in token,
+     * if 404 the resource not found,
+     * if 500 there is an error in server,
+     * @bodyParam amount decimal required the amount of the expense. Example: 550000
+     * @bodyParam reason string optional the reson of the expense. Example: notes here
+     * @responseFile 201 responses/expenses/get.json
+     * @response 400 {}
+     * @response 401 {}
+     * @response 404 {}
+     * @response 406 {}
+     * @responseFile 422 responses/expenses/errors.json
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
+    public function store(UserRequest $request)
+    {
+        try {
+            $store = User::create($request->validated());
+            if($store) {
+                return response()->json(new UserResource($store), Response::HTTP_CREATED);
+            }
+            return response()->noContent(Response::HTTP_INTERNAL_SERVER_ERROR);
+        } catch (Exception $ex) {
+            return response()->noContent(Response::HTTP_BAD_REQUEST);
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param $PARAM
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
+    public function show($PARAM)
+    {
+        //
+    }
+
+    /**
+     * Update
+     * If 202 will return the single data,
+     * if 400 there is an error in sending parameters,
+     * if 401 there is an error in token,
+     * if 404 the resource not found,
+     * if 500 there is an error in server,
+     * @urlParam id int required the resource id. Example: 1
+     * @bodyParam amount decimal required the amount of the expense. Example: 550000
+     * @bodyParam reason string optional the reson of the expense. Example: notes here
+     * @responseFile 202 responses/expenses/get.json
+     * @response 400 {}
+     * @response 401 {}
+     * @response 404 {}
+     * @response 406 {}
+     * @responseFile 422 responses/expenses/errors.json
+     * @param Request $request
+     * @param $PARAM
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
+    public function update(UserRequest $request, $PARAM)
+    {
+        try {
+            $update = $user->update($request->validated());
+            if($update) {
+                return response()->json(new UserResource($user), Response::HTTP_ACCEPTED);
+            }
+            return response()->noContent(Response::HTTP_INTERNAL_SERVER_ERROR);
+        } catch (Exception $ex) {
+            return response()->noContent(Response::HTTP_BAD_REQUEST);
+        }
+    }
+
+    /**
+     * Delete
+     * If 200 will delete data,
+     * if 400 there is an error in sending parameters,
+     * if 401 there is an error in token,
+     * if 404 the resource not found,
+     * if 500 there is an error in server,
+     * @urlParam id int required the resource id. Example: 1
+     * @response 200 {}
+     * @response 400 {}
+     * @response 401 {}
+     * @response 404 {}
+     * @response 500 {}
+     * @param $PARAM
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
+     */
+    public function destroy($PARAM)
+    {
+        try {
+            if($user->delete()) {
+                return response()->noContent(Response::HTTP_OK);
+            }
+            return response()->noContent(Response::HTTP_INTERNAL_SERVER_ERROR);
+        } catch (Exception $ex) {
+            return response()->noContent(Response::HTTP_BAD_REQUEST);
+        }
+    }
+}

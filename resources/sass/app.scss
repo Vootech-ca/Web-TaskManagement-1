@@ -1,0 +1,217 @@
+@import url(bootstrap.min.css);
+@import url(buttons.dataTables.min.css);
+@import url(datatables.min.css);
+@import url(icheck-bootstrap.min.css);
+@import url(select2.min.css);
+@import url(OverlayScrollbars.min.css);
+@import url(sweetalert2.min.css);
+@import "~font-awesome/scss/font-awesome";
+@import url(adminlte.min.css);
+
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_length {
+    display:inline-block;
+    text-align:left
+}
+
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_paginate {
+    float:right
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    margin-top:5px
+}
+
+.dataTables_wrapper .dt-buttons {
+    float:none;
+    position:absolute;
+    left:50%;
+    margin-left:-100px;
+    top: 0;
+}
+
+.dataTables_wrapper .dt-buttons button {
+    padding: 3px 6px;
+    font-size: 20px;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc_disabled:after {
+    bottom:4px
+}
+
+table.dataTable tbody tr:hover {
+    background-color:#d3f2fa!important
+}
+
+div.dataTables_processing {
+    z-index:9999;
+    border:none;
+    margin-left:0!important;
+    width:100px!important;
+    box-shadow:0 0 15px rgba(0,0,0,.3)
+}
+
+div.dataTables_wrapper div.dataTables_processing {
+    position:fixed;
+    top:40%;
+    left:50%;
+    margin-top:-26px;
+    text-align:center;
+    padding:1em 0
+}
+
+.dataTables_wrapper .buttons-html5 {
+    border: 1px solid #ccc
+}
+
+.dataTables_wrapper .buttons-copy {
+    color:#097894
+}
+
+.dataTables_wrapper .buttons-excel {
+    color:#00a65a
+}
+
+.dataTables_wrapper .buttons-csv {
+    color:#f39c12
+}
+
+.dataTables_wrapper .buttons-pdf {
+    color:#dd4b39
+}
+
+.dataTables_wrapper .buttons-html5 {
+    border:1px solid #ccc;
+    border-radius:0
+}
+
+.dataTables_wrapper .buttons-copy {
+    color:#097894
+}
+
+.dataTables_wrapper .buttons-excel {
+    color:#00a65a
+}
+
+.dataTables_wrapper .buttons-csv {
+    color:#f39c12
+}
+
+.dataTables_wrapper .buttons-pdf {
+    color:#dd4b39
+}
+
+.dt-print-view .dt-print-heading {
+    text-align:center
+}
+
+.dt-print-view .dt-print-heading .title {
+    font-size:22px;
+    margin:0
+}
+
+.dt-print-view .dt-print-heading p {
+    margin-bottom:5px
+}
+
+.dt-print-view .dt-print-heading .logo {
+    width:80px;
+    height:80px;
+    display:inline-block
+}
+
+.dt-print-view h1 {
+    font-size:20px;
+    margin:0;
+    padding:0
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0
+}
+
+@for $i from 1 through 95 {
+    .cw-#{$i} {
+        width: $i + 0% !important;
+    }
+}
+
+.flash {
+    animation: blinker 1s linear;
+}
+
+@keyframes blinker {
+    50% {
+        background-color: #93d3a1;
+    }
+}
+
+.card-title {
+    margin-bottom: 0;
+}
+
+.btn-add-new {
+    position: absolute;
+    top: 5px;
+    width: 100%;
+    text-align: right;
+    margin-top: -4px;
+    height: 100%;
+    padding-right: 10px;
+    outline: 0;
+    right: 10px;
+}
+
+.icheck-primary {
+    margin-left: 10px;
+}
+
+.error {
+    display: block;
+    font-size: 15px;
+}
+
+.permissions-list, .segments-list {
+    padding: 18px;
+    background-color: #eee;
+    margin: 18px;
+    border: 1px solid #eee;
+}
+
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+}
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+}
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}

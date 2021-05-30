@@ -1,0 +1,116 @@
+<?php
+
+namespace {{ namespace }};
+
+class {{ class }}
+{
+    /**
+     * Handle the $SINGULAR_MODEL "creating" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function creating($OBSERVED_CLASS_NAME $PARAM)
+    {
+        //$PARAM ->created_by = authId();
+    }
+
+    /**
+     * Handle the $SINGULAR_MODEL "created" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function created($OBSERVED_CLASS_NAME $PARAM)
+    {
+        doAction('$OBSERVED_CLASS_NAME Created', '$OBSERVED_CLASS_NAME', $PARAM ->id);
+    }
+
+    /**
+     * Handle the $SINGULAR_MODEL "updating" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function updating($OBSERVED_CLASS_NAME $PARAM)
+    {
+        //
+    }
+
+    /**
+     * Handle the $SINGULAR_MODEL "updated" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function updated($OBSERVED_CLASS_NAME $PARAM)
+    {
+        doAction('$OBSERVED_CLASS_NAME Updated', '$OBSERVED_CLASS_NAME', $PARAM ->id);
+    }
+
+    /**
+     * Handle the $SINGULAR_MODEL "saving" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function saving($OBSERVED_CLASS_NAME $PARAM)
+    {
+        //
+    }
+
+    /**
+     * Handle the $SINGULAR_MODEL "saved" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function saved($OBSERVED_CLASS_NAME $PARAM)
+    {
+        doAction('$OBSERVED_CLASS_NAME Saved', '$OBSERVED_CLASS_NAME', $PARAM ->id);
+    }
+
+    /**
+     * Handle the $SINGULAR_MODEL "deleting" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function deleting($OBSERVED_CLASS_NAME $PARAM)
+    {
+        //
+    }
+
+    /**
+     * Handle the $SINGULAR_MODEL "deleted" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function deleted($OBSERVED_CLASS_NAME $PARAM)
+    {
+        doAction('$OBSERVED_CLASS_NAME Deleted', '$OBSERVED_CLASS_NAME', $PARAM ->id);
+    }
+
+    /**
+     * Handle the $SINGULAR_MODEL "restoring" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function restoring($OBSERVED_CLASS_NAME $PARAM)
+    {
+        //
+    }
+
+    /**
+     * Handle the $SINGULAR_MODEL "restored" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function restored($OBSERVED_CLASS_NAME $PARAM)
+    {
+        doAction('$OBSERVED_CLASS_NAME Restored', '$OBSERVED_CLASS_NAME', $PARAM ->id);
+    }
+
+    /**
+     * Handle the $SINGULAR_MODEL "force deleted" event.
+     *
+     * @param $OBSERVED_CLASS_NAME $PARAM
+     */
+    public function forceDeleted($OBSERVED_CLASS_NAME $PARAM)
+    {
+        doAction('$OBSERVED_CLASS_NAME Force Deleted', '$OBSERVED_CLASS_NAME', $PARAM ->id);
+    }
+}
